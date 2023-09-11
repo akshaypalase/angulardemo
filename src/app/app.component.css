@@ -1,0 +1,11 @@
+#border{
+    margin: 20px;
+}
+
+ul{
+    background-color: #31072863;
+}
+ul li a {
+    font-size: 15px;
+    font-weight: 500;
+}

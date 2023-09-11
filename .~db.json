@@ -1,0 +1,55 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "email": "akshay",
+      "password": "palase"
+    },
+    {
+      "id": 2,
+      "email": "swapnil",
+      "password": "palase"
+    },
+    {
+      "email": "akshaypalase3@gmail.com",
+      "password": "Akshay@123",
+      "id": 3
+    },
+    {
+      "email": "akshaypalase7@gmail.com",
+      "password": "Akshay@123",
+      "id": 4
+    },
+    {
+      "personalDetails": {
+        "email": "akshaypalase5@gmail.com",
+        "password": "Akshay@123"
+      },
+      "id": 5
+    },
+    {
+      "personalDetails": {
+        "email": "akshaypalase4@gmail.com",
+        "password": "AKSHSYA"
+      },
+      "course": "React",
+      "id": 6
+    },
+    {
+      "personalDetails": {
+        "email": "Akshaypalase7@gmail.com",
+        "password": "AKSDHDH"
+      },
+      "course": "Angular",
+      "id": 7
+    },
+    {
+      "personalDetails": {
+        "email": "AKSHYA@GMAIL.COM",
+        "password": "AKSBAY"
+      },
+      "course": "Angular",
+      "id": 8
+    }
+  ]
+}
