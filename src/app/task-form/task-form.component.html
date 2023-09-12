@@ -1,0 +1,36 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" class="col-md-6 align-center">
+    <div class="form-group ">
+        <label for="taskname">Task Name</label>
+        <input type="text" class="form-control col-md-4 " [value]="x" ngModel id="name" name="taskname">
+        <input type="date" class="form-control" ngModel id="date" [value]="y" name="date">
+    </div>
+    <button type="submit" class="btn btn-success">submit</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Task Name</th>
+            <th scope="col">Due Date</th>
+            <th>Status</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of dataSource,index as x ">
+            <td>{{x+1}}</td>
+            <td>{{data.taskname}}</td>
+            <td>{{data.date}}</td>
+            <td>
+                <button (click)="taskpending(x)" class="btn btn-danger"
+                    [ngStyle]="{'background-color': data.completed?'green':'red'}">{{data.completed? "task completed" :
+                    "task
+                    pending"}}</button>
+                <button (click)="deleteTask(x)">delete</button>
+                <button (click)="editTask(x)">Edit</button>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
