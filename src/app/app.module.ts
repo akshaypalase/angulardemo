@@ -7,6 +7,7 @@ import { TaskFormComponent } from './task-form/task-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { TaskListComponent } from './task-list/task-list.component';
+import { FilterPipe } from './filter.pipe';
 
  
 
@@ -15,6 +16,7 @@ import { TaskListComponent } from './task-list/task-list.component';
     AppComponent,
     TaskFormComponent,
     TaskListComponent,
+    FilterPipe,
     
   ],
   imports: [

@@ -1,4 +1,9 @@
 table {
     width: 100%;
   }
+
+  .disabled  {
+    color: gray;
+    pointer-events: none;
+  }
   

@@ -4,7 +4,8 @@
         <input type="text" class="form-control col-md-4 " [value]="x" ngModel id="name" name="taskname">
         <input type="date" class="form-control" ngModel id="date" [value]="y" name="date">
     </div>
-    <button type="submit" class="btn btn-success">submit</button>
+    <button type="submit" class="btn btn-success">{{datta? "Submit" :
+        "Update"}}</button>
 </form>
 
 <table class="table">
@@ -13,7 +14,9 @@
             <th scope="col">id</th>
             <th scope="col">Task Name</th>
             <th scope="col">Due Date</th>
-            <th>Status</th>
+            <th class="ml-3">Status</th>
+            <th class="mx-5">Action</th>
+
         </tr>
 
     </thead>
@@ -27,10 +30,58 @@
                     [ngStyle]="{'background-color': data.completed?'green':'red'}">{{data.completed? "task completed" :
                     "task
                     pending"}}</button>
-                <button (click)="deleteTask(x)">delete</button>
-                <button (click)="editTask(x)">Edit</button>
-
             </td>
+            <td>
+                <span (click)="deleteTask(x)"><i class="fas fa-trash mx-2" style="font-size: 24px; color: red;"></i>
+                </span>
+                <span (click)="editTask(x)" class="mx-2" *ngIf="!data.completed"><i class="fas fa-edit"
+                        style="font-size: 24px; color: blue;"></i>
+                </span>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
+<button class="btn btn-success">Add all</button>
+<button class="btn btn-primary" (click)="onCompleted()">completed</button>
+<button class="btn btn-secondary">pending</button>
+
+
+
+
+<!-- filter table -->
+<table class="table" *ngIf="show">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Task Name</th>
+            <th scope="col">Due Date</th>
+            <th class="ml-3">Status</th>
+            <th class="mx-5">Action</th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of filterarray | filter,index as x">
+            <td>{{x+1}}</td>
+            <td>{{data.taskname}}</td>
+            <td>{{data.date}}</td>
+            <td>
+                <button (click)="taskpending(x)" class="btn btn-danger"
+                    [ngStyle]="{'background-color': data.completed?'green':'red'}">{{data.completed? "task completed" :
+                    "task
+                    pending"}}</button>
+            </td>
+            <td>
+                <span (click)="deleteTask(x)"><i class="fas fa-trash mx-2" style="font-size: 24px; color: red;"></i>
+                </span>
+                <span (click)="editTask(x)" class="mx-2" *ngIf="!data.completed"><i class="fas fa-edit"
+                        style="font-size: 24px; color: blue;"></i>
+                </span>
+            </td>
+
         </tr>
     </tbody>
 </table>

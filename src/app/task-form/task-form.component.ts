@@ -6,9 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-form.component.css']
 })
 export class TaskFormComponent implements OnInit {
-  
-  dataSource=[
-  ];
+   filterarray=[]
+  show=false;
+  datta=true;
+  index;
+  isDisabled=true;
+  dataSource=[];
   x;
   y;
   constructor() { }
@@ -17,17 +20,19 @@ export class TaskFormComponent implements OnInit {
   }
 
   onSubmit(data){
-    console.log(data);
-    this.dataSource.push({taskname:data.taskname,date:data.date,completed:false})
-    console.log(this.dataSource);
-    
+    if(this.datta){
+      this.dataSource.push({taskname:data.taskname,date:data.date,completed:false})
+    }else{
+      this.dataSource[this.index]={taskname:data.taskname,date:data.date,completed:false}
+      console.log(this.dataSource[this.index]);
+      this.datta=true;
+    }
   }
   taskpending(i){
      if(this.dataSource[i].completed){
       this.dataSource[i].completed=false;
      }else{
-      this.dataSource[i].completed=true;
-
+       this.dataSource[i].completed=true;
      }
   }
   deleteTask(i){
@@ -35,9 +40,16 @@ export class TaskFormComponent implements OnInit {
     console.log(this.dataSource);
   }
   editTask(i){
+    this.index=i
     this.x=this.dataSource[i].taskname
     this.y=this.dataSource[i].date
    console.log(this.x,this.y);
-   
+   this.datta=false;
+  }
+
+  onCompleted(){
+    this.show=true;
+    console.log(this.dataSource);
+    this.filterarray=this.dataSource;
   }
 }
